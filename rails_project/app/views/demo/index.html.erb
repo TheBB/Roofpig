@@ -1,46 +1,201 @@
-<!doctype html>
-<head>
-  <meta charset="utf-8" />
-  <style>
-      .rp160 { width: 160px; height: 180px; }
-      .rp170 { width: 170px; height: 203px; }
-      .rp250 { width: 250px; height: 299px; }
-      .rp440 { width: 440px; height: 499px; }
-      .left { float: left; }
-  </style>
+<script>
+ ROOFPIG_CONF_ALL = "hover=near";
+ ROOFPIG_CONF_REF = "base=ALL|colored=*/m";
+ ROOFPIG_CONF_CROSS = "base=ALL|colored=D*/e */m|pov=Dbl";
+ ROOFPIG_CONF_CORNERS = "base=ALL|solved=D*/e|colored=*/m DFR DFL DBR";
+ ROOFPIG_CONF_EDGES = "base=ALL|solved=D*/e DFR DFL DBR|colored=UD- */m";
+ ROOFPIG_CONF_F2L = "base=ALL|solved=U-/e DFL DBR DBL|colored=DFR */m";
+ ROOFPIG_CONF_OLL = "base=OLL|solved=U-|colored=u";
+ ROOFPIG_CONF_PLL = "base=OLL|solved=U- u|colored=uF uFR uR uBR uB uBL uL uFL";
+</script>
 
-  <script>
-    ROOFPIG_CONF_P1 = "colors=cube:white|hover=1.8";
-    ROOFPIG_CONF_F4 = "solved=UR-|colors=F:b B:g U:r D:o R:w L:y c:#666|colored=U UL-";
-    ROOFPIG_CONF_F5 = "solved=U- |colors=F:b B:g U:r D:o R:w L:y";
-  </script>
-</head>
+<h1>The reference frame</h1>
 
-<h1>RoofPig sample zoo.</h1>
+<table>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=REF">
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=ALL|colored=*/m UR|alg=U'">
+      </div>
+    </td>
+  </tr>
+</table>
 
-<body>
-<div class="roofpig rp250 left" data-config="base=P1|solved=UFR*|tweaks=XxX:UFR BBB:UBR|flags=showalg|alg=D'+D> R>+R' D R' D' R2|algdisplay=fancy2s Z"></div>
-<div class="roofpig rp170 left" data-config="base=P1|flags=canvas showalg startsolved|alg=F L F U' R U F2 L2 U' L' B D' B' L2 U|pov=dbR"></div>
-<div class="roofpig rp440 left" data-config="base=P1|hover=far|flags=showalg|alg=L2 D U2 B2 L B> U'+U> F U' F U' F' L> U>> U' F2 UZ R2 U F R' F' R F' R2 F R' F R F' R2 F D R2 D' R' D R D' R' D R' D' R2|algdisplay=fancy2s 2p"></div>
+<h1>The cross</h1>
 
-<div>
-  <table>
-    <tr>
-      <td>
-        <div class="roofpig rp160" data-config="pov=Ufr| solved=f| colored=R*/c L*/c| alg= |tweaks=X:Uf x:Dl RF:DL| hover=far ">Undrifted</div>
-      </td>
-      <td>
-        <div class="roofpig rp160" data-config="pov=Ufr| solved=f| colored=R*/c L*/c| alg=y |tweaks=X:Uf x:Dl RF:DL| hover=far ">Drifted</div>
-      </td>
-      <td>
-        <div style="height:235px; width: 190px;" class="roofpig" data-config="alg=M M' x y2 z' E E' S S' M E S M E S|flags=showalg"></div>
-      </td>
-      <td>
-        <div class="roofpig rp160" data-config="hover=none|speed=200|alg=L2 D U2 B2 L B> U'+U> F U' F U' F' L> U2 U' F2 UZ R2 U F R' F' R F' R2 F R' F R F' R2 F D R2 D' R' D R D' R' D R' D' R2"></div>
-      </td>
-      <td><div style="height:125px; width: 100px;" class="roofpig" data-config="base=F4|setupmoves=R' U R U|alg=R' U R U' R U2 R U2 R2"></div></td>
-    </tr>
-  </table>
-</div>
+<table>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=CROSS">
+        Objective
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=CROSS|alg=B2">
+        Simple insertion
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=CROSS|alg=B L' B'">
+        Inverted insertion
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=CROSS|alg=D2 L' D2">
+        Rotate white
+      </div>
+    </td>
+  </tr>
+</table>
 
-</body>
+<h1>Three corners</h1>
+
+<table>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=CORNERS|pov=Ubl">
+        Objective
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=CORNERS|alg=R U R'">
+        Insertion on the right
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=CORNERS|alg=F' U' F">
+        Insertion on the left
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=CORNERS|alg=R U' R' U2 R U R'">
+        Insertion upside down
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h1>Four edges</h1>
+
+<table>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=EDGES|pov=Ubl">
+        Objective
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=EDGES|alg=D2 R U' R' D2'">
+        Insertion on the right
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=EDGES|alg=D2 F' U F D2'">
+        Insertion on the left
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h1>Last corner</h1>
+
+<table>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=F2L">
+        Objective
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=F2L|alg=U F' U F U2' F' U F">
+        Insertion on the right
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=F2L|alg=U' R U' R' U2 R U' R'">
+        Insertion on the left
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=F2L|alg=R U' R' U R U' R' U R U' R' U">
+        Insertion upside down (3x repeat)
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h1>Orienting</h1>
+
+<table>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=OLL">
+        Objective
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=OLL|colored=u/em|alg=F U R U' R' F'">
+        Flip two edges
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=OLL|alg=R U R' U R U2 R'">
+        Rotate three corners
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h1>Permuting</h1>
+
+<table>
+  <tr>
+    <td>
+      <div class="roofpig"
+           data-config="base=PLL">
+        Objective
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=PLL|alg=M D2 M' U' M D2 M' U M D2 M'">
+        Edge cycle
+      </div>
+    </td>
+    <td>
+      <div class="roofpig"
+           data-config="base=PLL|alg=R' D2 R U' R' D2 R U R' D2 R">
+        Corner cycle
+      </div>
+    </td>
+  </tr>
+</table>
